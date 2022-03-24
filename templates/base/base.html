@@ -1,0 +1,27 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intelligent Chatbot  {% block title %}{% endblock %} </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+        {% block stylesheets %}{% endblock stylesheets %}
+    </head>
+    <body>
+        {% block content %}{% endblock content %}
+        <script>
+            var exports = {};
+        </script>
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/speech-to-text@0.7.4/lib/index.js"></script>
+        <script type="text/javascript" src="{% static 'js/chat.js' %}"></script>
+
+
+        {% block javascripts %}{% endblock javascripts %}
+    </body>
+</html>

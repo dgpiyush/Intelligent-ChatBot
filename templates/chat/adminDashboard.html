@@ -1,0 +1,69 @@
+{% extends 'chat/index.html' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block stylesheets %}
+<style>
+    
+.formbtn{
+        display: flex;
+  justify-content: center;
+  align-items: center;
+    }
+.centerDiv{
+        position: absolute;
+  	left: 50%;
+  	top: 50%;
+  	transform: translate(-50%, -50%);
+    }
+.nav{
+    padding: 0px 15px !important
+}
+</style>
+
+{% endblock stylesheets %}
+
+
+
+{% block body %}
+
+    <nav>
+    
+        <div class="navbar-fixed nav container">
+        <a href="{% url 'index' %}" class="brand-logo ">Intelligent Chatbot</a>
+        
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a  href="{% url 'trianBot' %}">TrainBot</a></li>
+            <li><a href="{% url 'chat_viewMY' %}">Chat</a></li>
+            <li><a href="{% url 'logout' %}"><i class="material-icons">power_settings_new</i></a></li>
+        </ul>
+        </div>
+
+    </nav>
+
+    
+    <div class="centerDiv">
+        <h1 class="center">
+            {% if mode == False %}
+                Curently System is in Manual Mode
+            {% else %}
+            Curently System is in bot Mode
+            {% endif %}
+        </h1>
+        <div class="center-block formbtn">
+            <form method='post'>
+                {% csrf_token %}
+                <button class="btn btn-large waves-effect waves-purple darken-1 " name='bot' value="bot">Bot Mode</button>
+                <button class="btn btn-large" name='manual' value="manual"> Manual Mode</button>
+            </form>
+        </div>
+    </div>
+    
+
+{% endblock body %}
+
+
+{% block javascripts %}
+   
+{% endblock javascripts %}
+
